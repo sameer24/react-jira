@@ -72,6 +72,10 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
+	var _ErrorPageC = __webpack_require__(476);
+
+	var _ErrorPageC2 = _interopRequireDefault(_ErrorPageC);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// remove tap delay, essential for MaterialUI to work properly
@@ -80,7 +84,11 @@
 	_reactDom2.default.render(_react2.default.createElement(
 	  _MuiThemeProvider2.default,
 	  { muiTheme: (0, _getMuiTheme2.default)() },
-	  _react2.default.createElement(_reactRouter.Router, { history: _reactRouter.browserHistory, routes: _routes2.default })
+	  _react2.default.createElement(
+	    _reactRouter.Router,
+	    { history: _reactRouter.browserHistory, routes: _routes2.default },
+	    _react2.default.createElement(_reactRouter.Route, { path: '/auth/errorPAge', component: _ErrorPageC2.default })
+	  )
 	), document.getElementById('react-app'));
 
 /***/ }),
@@ -35234,6 +35242,10 @@
 
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 
+	var _ErrorPageC = __webpack_require__(476);
+
+	var _ErrorPageC2 = _interopRequireDefault(_ErrorPageC);
+
 	var _DashboardPage = __webpack_require__(457);
 
 	var _DashboardPage2 = _interopRequireDefault(_DashboardPage);
@@ -35262,12 +35274,14 @@
 	        callback(null, _DashboardPage2.default);
 	      } else {
 	        callback(null, _HomePage2.default);
-	        console.log('ssssssssssss');
 	      }
 	    }
 	  }, {
 	    path: '/login',
 	    component: _LoginPage2.default
+	  }, {
+	    path: '/errorPAge',
+	    component: _ErrorPageC2.default
 	  }, {
 	    path: '/signup',
 	    component: _SignUpPage2.default
@@ -43748,6 +43762,36 @@
 	};
 
 	exports.default = SignUpForm;
+
+/***/ }),
+/* 474 */,
+/* 475 */,
+/* 476 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Card = __webpack_require__(400);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ErrorPageC = function ErrorPageC() {
+	  return _react2.default.createElement(
+	    _Card.Card,
+	    { className: 'container' },
+	    _react2.default.createElement(_Card.CardTitle, { title: 'React Application', subtitle: 'This is Error page.' })
+	  );
+	};
+
+	exports.default = ErrorPageC;
 
 /***/ })
 /******/ ]);

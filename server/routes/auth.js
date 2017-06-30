@@ -75,6 +75,14 @@ function validateLoginForm(payload) {
   };
 }
 
+router.get('/errorPAge',(req,res,next)=>{
+  return res.status(200).json({
+      success: true,
+      message: 'Message Success',
+      errors: 'Errors...'
+    });
+})
+
 router.post('/signup', (req, res, next) => {
   const validationResult = validateSignupForm(req.body);
   if (!validationResult.success) {
@@ -84,7 +92,6 @@ router.post('/signup', (req, res, next) => {
       errors: validationResult.errors
     });
   }
-
 
   return passport.authenticate('local-signup', (err) => {
     if (err) {

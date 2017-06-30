@@ -1,10 +1,10 @@
 import Base from './components/Base.jsx';
 import HomePage from './components/HomePage.jsx';
+import ErrorPageC from './components/ErrorPageC.jsx';
 import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import Auth from './modules/Auth';
-
 
 const routes = {
   // base component (wrapper for the whole application).
@@ -18,21 +18,21 @@ const routes = {
           callback(null, DashboardPage);
         } else {
           callback(null, HomePage);
-          console.log('ssssssssssss')
         }
       }
     },
-
     {
       path: '/login',
       component: LoginPage
     },
-
+    {
+      path: '/errorPAge',
+      component: ErrorPageC
+    },
     {
       path: '/signup',
       component: SignUpPage
     },
-
     {
       path: '/logout',
       onEnter: (nextState, replace) => {

@@ -31,6 +31,26 @@ const apiRoutes = require('./server/routes/api');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  var err = new Error('Not ERROR Found');
+  err.status = 404;
+  next(err);
+});
+// error handler
+app.use(function (err, req, res, next) {
+
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+console.log('Request URL Not Found : '+req.url);
+  // render the error page
+  res.status(err.status || 500);
+  //res.send('Page Not Found');
+  res.redirect('/auth/errorPAge');
+  //next(err)
+});
+
 // start the server
 app.listen(3025, () => {
   console.log('Server is running on http://localhost:3000 or http://127.0.0.1:3000');
